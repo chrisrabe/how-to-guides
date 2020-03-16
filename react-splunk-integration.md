@@ -8,7 +8,6 @@ Instructions for integrating React with Splunk. Exact versioning will be used wh
 - Installed NodeJS and NPM
 - Splunk application is created
 
-
 # Instructions
 
 ## Step 1: Create your homepage (optional)
@@ -123,10 +122,13 @@ module.exports = {
 ```json
     ...
     "scripts": {
-        "build": "webpack"
+        "build": "webpack",
+        "watch": "webpack -d --watch --progress"
     },
     ...
 ```
+
+The `build` script manually creates `bundle.js` using webpack. The `watch` script automatically updates `bundle.js` if there are any code changes.
 
 ### 2.3 Install and setup react
 1. Install React and React DOM
@@ -186,6 +188,23 @@ require([
 5. Press the `bump` button
 6. Open your Splunk application in your web browser. You should see "Hello World" printed on one of the panels
 
+## Step 3: Disable Splunk Caching
+
+1. Create a file called `web.conf` inside your `default` folder
+2. Enter the following settings:
+```
+[settings]
+ js_no_cache = true
+ cacheBytesLimit = 0
+ cacheEntriesLimit = 0
+ max_view_cache_size = 0
+ auto_refresh_views = 1
+```
+3. Restart the Splunk server
+
+## Step 4: Develop your UI
+See `Appendix B`
+
 # Explanation
 
 ## Step 1 Explanation
@@ -202,14 +221,26 @@ In this section, we created a webpack configuration and created a `build` comman
 ## Section 2.4 Explanation
 As mentioned above, the `dashboard_file.js` is responsible for injecting React elements into the dashboard. It does this through the `react-dom` library.
 
+## Step 3 Explanation
+We have to create the `web.conf` file so that when you make front-end changes, you wouldn't have to hit the `bump` button all the time.
+
 # Appendix
 
 ## Appendix A: Restaring Splunk
+**Note:** If you can't see the settings bar, go to `https://<SPLUNK_URL>/en-GB/manager/<APP>/control`
+
 1. Open Splunk via your Web Browser
 2. Log in
 3. Go to `Settings > Server Controls`
 4. Press `Restart Splunk`
 
-## Appendix B: Known bugs
-- When app file is changed, DOM is not updated
-- Even when index file is rebuilt, HTML doesn't refresh
+## Appendix B: Developing the UI
+When developing your React front-end, you need to have two things running:
+1. The `watch` script
+2. Browser developer console
+
+You can run the `watch` script by typing `npm run watch` from your `react-ui` directory.
+
+When you have the browser developer console open, ensure that you have **caching disabled**. For Chrome, this can be found in the `Network` tab. **You need to have the developer console open at all times, otherwise you wouldn't be able to see changes.**
+
+![disable-cache](images/react-splunk-disable-cache.png)
