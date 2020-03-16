@@ -243,4 +243,4 @@ You can run the `watch` script by typing `npm run watch` from your `react-ui` di
 
 When you have the browser developer console open, ensure that you have **caching disabled**. For Chrome, this can be found in the `Network` tab. **You need to have the developer console open at all times, otherwise you wouldn't be able to see changes.**
 
-![disable-cache](images/react-splunk-disable-cache.png)
+![disable-cache](../images/react-splunk-disable-cache.png)
