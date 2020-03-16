@@ -116,7 +116,7 @@ When developing your React front-end, you need to have two things running:
 1. The `watch` script
 2. Browser developer console
 
-You can run the `watch` script by typing `npm run watch` from your `react-ui` directory.
+You can run the `watch` script by typing `npm run watch` from your `appserver/static/client` directory.
 
 When you have the browser developer console open, ensure that you have **caching disabled**. For Chrome, this can be found in the `Network` tab. **You need to have the developer console open at all times, otherwise you wouldn't be able to see changes.**
 
