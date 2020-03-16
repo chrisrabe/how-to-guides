@@ -53,11 +53,7 @@ npm install --save-dev cra-build-watch
 npm run watch
 ```
 
-## Step 2: Create your homepage (optional)
-
-*Note 1: Skip this step if you already have a dashboard* 
-
-*Note 2: This step assumes you're building from a bare Splunk app*
+## Step 2: Create your homepage 
 
 1. Open `$SPLUNK_HOME/etc/apps/<your-app>` in your IDE
 2. Modify `default/data/ui/nav` to
@@ -65,6 +61,7 @@ npm run watch
 ```xml
 <nav search_view="search">
   <view name="homepage" default='true' />
+  # other views
 </nav>
 ```
 

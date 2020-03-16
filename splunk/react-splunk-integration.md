@@ -10,11 +10,7 @@ Instructions for integrating React with Splunk. Exact versioning will be used wh
 
 # Instructions
 
-## Step 1: Create your homepage (optional)
-
-*Note 1: Skip this step if you already have a dashboard* 
-
-*Note 2: This step assumes you're building from a bare Splunk app*
+## Step 1: Create your homepage
 
 1. Open `$SPLUNK_HOME/etc/apps/<your-app>` in your IDE
 2. Modify `default/data/ui/nav` to
@@ -22,6 +18,7 @@ Instructions for integrating React with Splunk. Exact versioning will be used wh
 ```xml
 <nav search_view="search">
   <view name="homepage" default='true' />
+  # other views
 </nav>
 ```
 
