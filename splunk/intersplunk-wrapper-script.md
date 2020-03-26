@@ -138,6 +138,7 @@ def FilterCallback(splunk_events):
         for field in extracted_fields:
             if field in event:
                 data[field] = event[field]
+        filter_results.append(data)
  
     return filter_results
  
