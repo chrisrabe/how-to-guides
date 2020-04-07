@@ -54,6 +54,8 @@ def _parse_stash_string(text):
 # Otherwise the _raw value uses a special parsing algorithm
 # That converts 'stash' sourcetypes into a dictionary
 def _get_raw_object(splunk_event):
+    if '_raw' not in splunk_event:
+        return splunk_event
     raw = splunk_event['_raw']
     json_object = _load_json(raw)
     if json_object is not None:
