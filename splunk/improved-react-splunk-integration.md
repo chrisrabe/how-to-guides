@@ -47,6 +47,7 @@ npm install --save-dev cra-build-watch
 ```
 
 *Note: Ensure that you attach the trailing slash, otherwise assets wouldn't load*
+*Note: Modify the --public-path to include the path after the base URL. E.g. if your URL looks like "localhost:8080/splunk", you modify your --public-path to /splunk/en-US/static/app/<my_app>/client/build*
 
 8. Run the `watch` script
 ```
